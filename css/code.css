@@ -1,0 +1,107 @@
+/* VS Code 风格的代码块容器 */
+figure.highlight {
+    margin: 1.5em 0;
+    background: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    overflow: hidden;
+}
+
+/* 代码块标题栏 */
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    background: #2d2d2d;
+    border-bottom: 1px solid #404040;
+}
+
+.code-language {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #858585;
+}
+
+/* 代码区域 */
+.highlight {
+    position: relative;
+    overflow-x: auto;
+}
+
+.highlight pre {
+    margin: 0;
+    padding: 16px;
+    background: transparent;
+}
+
+.highlight code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* 行号样式 */
+.highlight .gutter {
+    padding: 16px 12px;
+    background: #252526;
+    border-right: 1px solid #404040;
+    color: #858585;
+    user-select: none;
+}
+
+.highlight .code {
+    padding: 16px;
+}
+
+/* VS Code 风格的代码高亮 */
+.highlight .keyword { color: #569cd6; }
+.highlight .string { color: #ce9178; }
+.highlight .comment { color: #6a9955; }
+.highlight .function { color: #dcdcaa; }
+.highlight .number { color: #b5cea8; }
+.highlight .operator { color: #d4d4d4; }
+.highlight .class { color: #4ec9b0; }
+.highlight .variable { color: #9cdcfe; }
+
+/* 复制按钮 */
+.copy-btn {
+    background: #333333;
+    border: 1px solid #404040;
+    border-radius: 4px;
+    color: #858585;
+    padding: 4px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.copy-btn:hover {
+    background: #404040;
+    color: #fff;
+}
+
+.copy-btn i {
+    font-size: 14px;
+}
+
+/* 代码块滚动条 */
+.highlight::-webkit-scrollbar {
+    height: 8px;
+}
+
+.highlight::-webkit-scrollbar-track {
+    background: #1e1e1e;
+}
+
+.highlight::-webkit-scrollbar-thumb {
+    background: #404040;
+    border-radius: 4px;
+}
+
+.highlight::-webkit-scrollbar-thumb:hover {
+    background: #4d4d4d;
+}
