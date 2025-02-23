@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="../../css/tag.css">
   <link rel="stylesheet" href="../../css/categories.css">
   <link rel="stylesheet" href="../../css/archive.css">
+  <link rel="stylesheet" href="../../css/mobile.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
 
   <!-- 添加 JetBrains Mono 字体 -->
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -28,8 +30,12 @@
   <script src="../../js/explorer.js"></script>
 <meta name="generator" content="Hexo 7.3.0"></head>
 
+
   <body>
     <div class="wrapper">
+      <div class="mobile-menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
       <header class="vs-header">
   <nav class="vs-nav">
     <div class="nav-left">
@@ -223,5 +229,13 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 <script src="../../js/toc.js"></script>
 
+    <script>
+      // 移动端菜单切换
+      $(document).ready(function() {
+        $('.mobile-menu-toggle').click(function() {
+          $('.sidebar-explorer').toggleClass('show');
+        });
+      });
+    </script>
   </body>
 </html>

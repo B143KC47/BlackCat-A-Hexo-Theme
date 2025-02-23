@@ -1,0 +1,37 @@
+.mobile-menu-toggle {
+    display: none;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    padding: 10px;
+    background: #1e1e1e;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .sidebar-explorer {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        height: 100%;
+        width: 80%;
+        max-width: 300px;
+        z-index: 999;
+        transition: left 0.3s ease;
+        background: #252526;
+    }
+
+    .sidebar-explorer.show {
+        left: 0;
+    }
+
+    .wrapper {
+        padding-top: 50px;
+    }
+}

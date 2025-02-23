@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="../../../../css/tag.css">
   <link rel="stylesheet" href="../../../../css/categories.css">
   <link rel="stylesheet" href="../../../../css/archive.css">
+  <link rel="stylesheet" href="../../../../css/mobile.css">
+  <link rel="stylesheet" href="../../../../css/responsive.css">
 
   <!-- 添加 JetBrains Mono 字体 -->
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -28,8 +30,12 @@
   <script src="../../../../js/explorer.js"></script>
 <meta name="generator" content="Hexo 7.3.0"></head>
 
+
   <body>
     <div class="wrapper">
+      <div class="mobile-menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
       <header class="vs-header">
   <nav class="vs-nav">
     <div class="nav-left">
@@ -124,7 +130,7 @@
         <span>TABLE OF CONTENTS</span>
       </div>
       <div class="section-content">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#VSCat-Theme-for-Hexo"><span class="toc-text">VSCat Theme for Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Features"><span class="toc-text">Features</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Installation"><span class="toc-text">Installation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Configuration"><span class="toc-text">Configuration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#License"><span class="toc-text">License</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Support"><span class="toc-text">Support</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#BlackCat-Theme-for-Hexo"><span class="toc-text">BlackCat Theme for Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Features"><span class="toc-text">Features</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Installation"><span class="toc-text">Installation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Configuration"><span class="toc-text">Configuration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#License"><span class="toc-text">License</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Support"><span class="toc-text">Support</span></a></li></ol></li></ol>
       </div>
     </div>
     
@@ -184,10 +190,11 @@
         </div>
         
         <div class="post-body vscode-markdown">
-          <h1 id="VSCat-Theme-for-Hexo"><a href="#VSCat-Theme-for-Hexo" class="headerlink" title="VSCat Theme for Hexo"></a>VSCat Theme for Hexo</h1><p>An elegant and minimalist theme for Hexo, designed with a dark color scheme and code-inspired aesthetics.</p>
+          <h1 id="BlackCat-Theme-for-Hexo"><a href="#BlackCat-Theme-for-Hexo" class="headerlink" title="BlackCat Theme for Hexo"></a>BlackCat Theme for Hexo</h1><p>An elegant and minimalist theme for Hexo, designed with a dark color scheme and cat-inspired aesthetics.</p>
 <p><img src="https://cdn.pixabay.com/photo/2015/09/29/13/47/cat-963931_1280.jpg" alt="Black cat sitting at computer"></p>
 <p><em>Image credit: <a target="_blank" rel="noopener" href="https://pixabay.com/photos/cat-black-cat-work-computer-963931/">Black cat at work by Pixabay</a></em></p>
-<p>Demo：<a target="_blank" rel="noopener" href="https://b143kc47.github.io/VSC4T-A-Hexo-Theme/">https://b143kc47.github.io/VSC4T-A-Hexo-Theme/</a></p>
+<p>Demo:</p>
+<p><img src="themes/VSC4T/VSC4T.jpg" alt="Demo Screenshot"></p>
 <h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><ul>
 <li>🌙 Dark mode optimized</li>
 <li>📱 Fully responsive layout</li>
@@ -202,12 +209,12 @@
 <ol start="2">
 <li>Clone this repository:</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/B143KC47/VSCat-A-Hexo-Theme.git<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/B143KC47/BlackCat-A-Hexo-Theme.git<br></code></pre></td></tr></table></figure>
 
 <ol start="3">
 <li>Add the theme to your site’s configuration:</li>
 </ol>
-<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs toml"><span class="hljs-attr">theme</span> = <span class="hljs-string">&quot;VSC4T&quot;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs toml"><span class="hljs-attr">theme</span> = <span class="hljs-string">&quot;blackcat&quot;</span><br></code></pre></td></tr></table></figure>
 
 <h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>Add the following to your <code>config.toml</code>:</p>
 <figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs toml"><span class="hljs-section">[params]</span><br>    <span class="hljs-comment"># Site Author</span><br>    <span class="hljs-attr">author</span> = <span class="hljs-string">&quot;Your Name&quot;</span><br>    <br>    <span class="hljs-comment"># Site Description</span><br>    <span class="hljs-attr">description</span> = <span class="hljs-string">&quot;Your site description&quot;</span><br>    <br>    <span class="hljs-comment"># Social Media Links</span><br>    <span class="hljs-attr">github</span> = <span class="hljs-string">&quot;yourusername&quot;</span><br>    <span class="hljs-attr">twitter</span> = <span class="hljs-string">&quot;yourusername&quot;</span><br>    <br>    <span class="hljs-comment"># Enable/Disable features</span><br>    <span class="hljs-attr">enableDarkMode</span> = <span class="hljs-literal">true</span><br>    <span class="hljs-attr">enableComments</span> = <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
@@ -283,5 +290,13 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 <script src="../../../../js/toc.js"></script>
 
+    <script>
+      // 移动端菜单切换
+      $(document).ready(function() {
+        $('.mobile-menu-toggle').click(function() {
+          $('.sidebar-explorer').toggleClass('show');
+        });
+      });
+    </script>
   </body>
 </html>
