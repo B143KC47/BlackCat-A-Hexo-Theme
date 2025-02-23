@@ -9,68 +9,171 @@
   <link rel="stylesheet" href="../../../../css/main.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
   <!-- 添加代码高亮样式 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
   <link rel="stylesheet" href="../../../../css/code.css">
+  <link rel="stylesheet" href="../../../../css/vscode.css">
+  <link rel="stylesheet" href="../../../../css/post.css">
+  <link rel="stylesheet" href="../../../../css/tag.css">
+  <link rel="stylesheet" href="../../../../css/categories.css">
+  <link rel="stylesheet" href="../../../../css/archive.css">
 
   <!-- 添加 JetBrains Mono 字体 -->
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Add any custom head content here -->
 
+  <script src="../../../../js/explorer.js"></script>
 <meta name="generator" content="Hexo 7.3.0"></head>
 
   <body>
     <div class="wrapper">
-      <header class="header">
-  <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="../../../../index.html">
-        <i class="fas fa-code mr-2"></i>BlackCat
+      <header class="vs-header">
+  <nav class="vs-nav">
+    <div class="nav-left">
+      <a href="../../../../index.html" class="nav-brand">
+        <i class="fas fa-terminal"></i>
+        BlackCat
       </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="../../../../archives">
-              <i class="fas fa-archive mr-1"></i>Archives
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../../../../tags">
-              <i class="fas fa-tags mr-1"></i>Tags
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../../../../about">
-              <i class="fas fa-user mr-1"></i>About
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../../../../series">
-              <i class="fas fa-bookmark mr-1"></i>Series
-            </a>
-          </li>
-        </ul>
-      </div>
+    </div>
+    
+    <div class="nav-right">
+      <a href="../../../../index.html" class="nav-item ">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+      <a href="../../../../archives" class="nav-item ">
+        <i class="fas fa-archive"></i>
+        <span>Archives</span>
+      </a>
+      <a href="../../../../categories/" class="nav-item ">
+        <i class="fas fa-folder"></i>
+        <span>Categories</span>
+      </a>
+      <a href="../../../../tags/" class="nav-item ">
+        <i class="fas fa-tags"></i>
+        <span>Tags</span>
+      </a>
+      <a href="../../../../about" class="nav-item ">
+        <i class="fas fa-info-circle"></i>
+        <span>About</span>
+      </a>
     </div>
   </nav>
 </header>
 
+<script>
+  function smoothScroll(event, target) {
+    event.preventDefault();
+    const targetId = target.substring(target.indexOf('#') + 1);
+    const targetElement = document.getElementById(targetId);
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-9">
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 50, // 调整偏移量
+        behavior: 'smooth'
+      });
+    } else {
+      window.location.href = target;
+    }
+  }
+
+  window.addEventListener('scroll', function() {
+    const header = document.querySelector('.vs-header');
+    const nav = document.querySelector('.vs-nav');
+    const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    
+    nav.style.setProperty('--scroll-percent', `${scrollPercent}%`);
+    
+    if (window.scrollY > 0) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // 添加标签页切换动画
+  document.querySelectorAll('.nav-item').forEach(item => {
+    item.addEventListener('click', function(e) {
+      const ripple = document.createElement('span');
+      ripple.classList.add('nav-ripple');
+      this.appendChild(ripple);
+      
+      const rect = this.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      ripple.style.left = `${x}px`;
+      ripple.style.top = `${y}px`;
+      
+      setTimeout(() => ripple.remove(), 1000);
+    });
+  });
+</script>
+
+
+<div class="vscode-container">
+  <!-- 左侧资源管理器 -->
+  <div class="sidebar-explorer">
+    <!-- TOC导航 -->
+    <div class="explorer-section">
+      <div class="section-header">
+        <i class="fas fa-list"></i>
+        <span>TABLE OF CONTENTS</span>
+      </div>
+      <div class="section-content">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+      </div>
+    </div>
+    
+    <!-- 相关文章 -->
+    <div class="explorer-section">
+      <div class="section-header">
+        <i class="fas fa-link"></i>
+        <span>RELATED POSTS</span>
+      </div>
+      <div class="section-content">
+        
+          <div class="file">
+            <i class="fas fa-file-code"></i>
+            <a href="../vsc4t/">VSC4T</a>
+          </div>
+        
+          <div class="file">
+            <i class="fas fa-file-code"></i>
+            <a href="">Hello World</a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- 主要内容区域 -->
+  <div class="editor-content">
+    <div class="tab-bar">
+      <div class="tab active">
+        <i class="fas fa-file-alt"></i>
+        <span>Hello World.md</span>
+      </div>
+    </div>
+    
+    <div class="content-area">
       <article class="post-content">
-        <h1 class="post-title">Hello World</h1>
-        <div class="post-meta">
-          <span><i class="fas fa-calendar"></i> 2025-02-22</span>
-          
+        <div class="post-header">
+          <h1>Hello World</h1>
+          <div class="post-meta">
+            <span class="date">
+              <i class="fas fa-calendar-alt"></i>
+              2025-02-23
+            </span>
+            
+            
+          </div>
         </div>
-        <div class="post-body">
+        
+        <div class="post-body vscode-markdown">
           <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
 
@@ -86,24 +189,18 @@
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
         </div>
+        
+        <!-- 文章导航 -->
+        <nav class="post-nav">
+          
+            <a class="prev" href="../vsc4t/">
+              <i class="fas fa-chevron-left"></i>
+              VSC4T
+            </a>
+          
+          
+        </nav>
       </article>
-      
-
-
-
-    </div>
-    <div class="col-md-3">
-      
-<div class="toc-container">
-  <div class="toc-header">
-    <i class="fas fa-list"></i> 目录
-  </div>
-  <div class="toc-content">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
-  </div>
-</div>
-
-
     </div>
   </div>
 </div>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>VSC4T | BlackCat</title>
+
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/main.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- 添加代码高亮样式 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="../../../../css/code.css">
+  <link rel="stylesheet" href="../../../../css/vscode.css">
+  <link rel="stylesheet" href="../../../../css/post.css">
+  <link rel="stylesheet" href="../../../../css/tag.css">
+  <link rel="stylesheet" href="../../../../css/categories.css">
+  <link rel="stylesheet" href="../../../../css/archive.css">
+
+  <!-- 添加 JetBrains Mono 字体 -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Add any custom head content here -->
+
+  <script src="../../../../js/explorer.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+    <div class="wrapper">
+      <header class="vs-header">
+  <nav class="vs-nav">
+    <div class="nav-left">
+      <a href="../../../../index.html" class="nav-brand">
+        <i class="fas fa-terminal"></i>
+        BlackCat
+      </a>
+    </div>
+    
+    <div class="nav-right">
+      <a href="../../../../index.html" class="nav-item ">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+      <a href="../../../../archives" class="nav-item ">
+        <i class="fas fa-archive"></i>
+        <span>Archives</span>
+      </a>
+      <a href="../../../../categories/" class="nav-item ">
+        <i class="fas fa-folder"></i>
+        <span>Categories</span>
+      </a>
+      <a href="../../../../tags/" class="nav-item ">
+        <i class="fas fa-tags"></i>
+        <span>Tags</span>
+      </a>
+      <a href="../../../../about" class="nav-item ">
+        <i class="fas fa-info-circle"></i>
+        <span>About</span>
+      </a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  function smoothScroll(event, target) {
+    event.preventDefault();
+    const targetId = target.substring(target.indexOf('#') + 1);
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 50, // 调整偏移量
+        behavior: 'smooth'
+      });
+    } else {
+      window.location.href = target;
+    }
+  }
+
+  window.addEventListener('scroll', function() {
+    const header = document.querySelector('.vs-header');
+    const nav = document.querySelector('.vs-nav');
+    const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    
+    nav.style.setProperty('--scroll-percent', `${scrollPercent}%`);
+    
+    if (window.scrollY > 0) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // 添加标签页切换动画
+  document.querySelectorAll('.nav-item').forEach(item => {
+    item.addEventListener('click', function(e) {
+      const ripple = document.createElement('span');
+      ripple.classList.add('nav-ripple');
+      this.appendChild(ripple);
+      
+      const rect = this.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      ripple.style.left = `${x}px`;
+      ripple.style.top = `${y}px`;
+      
+      setTimeout(() => ripple.remove(), 1000);
+    });
+  });
+</script>
+
+
+<div class="vscode-container">
+  <!-- 左侧资源管理器 -->
+  <div class="sidebar-explorer">
+    <!-- TOC导航 -->
+    <div class="explorer-section">
+      <div class="section-header">
+        <i class="fas fa-list"></i>
+        <span>TABLE OF CONTENTS</span>
+      </div>
+      <div class="section-content">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#VSCat-Theme-for-Hexo"><span class="toc-text">VSCat Theme for Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Features"><span class="toc-text">Features</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Installation"><span class="toc-text">Installation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Configuration"><span class="toc-text">Configuration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#License"><span class="toc-text">License</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Support"><span class="toc-text">Support</span></a></li></ol></li></ol>
+      </div>
+    </div>
+    
+    <!-- 相关文章 -->
+    <div class="explorer-section">
+      <div class="section-header">
+        <i class="fas fa-link"></i>
+        <span>RELATED POSTS</span>
+      </div>
+      <div class="section-content">
+        
+          <div class="file">
+            <i class="fas fa-file-code"></i>
+            <a href="">VSC4T</a>
+          </div>
+        
+          <div class="file">
+            <i class="fas fa-file-code"></i>
+            <a href="../hello-world/">Hello World</a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- 主要内容区域 -->
+  <div class="editor-content">
+    <div class="tab-bar">
+      <div class="tab active">
+        <i class="fas fa-file-alt"></i>
+        <span>VSC4T.md</span>
+      </div>
+    </div>
+    
+    <div class="content-area">
+      <article class="post-content">
+        <div class="post-header">
+          <h1>VSC4T</h1>
+          <div class="post-meta">
+            <span class="date">
+              <i class="fas fa-calendar-alt"></i>
+              2025-02-23
+            </span>
+            
+              <span class="categories">
+                <i class="fas fa-folder"></i>
+                <a class="category-link" href="../../../../categories/hexo-theme/">hexo-theme</a>
+              </span>
+            
+            
+              <span class="tags">
+                <i class="fas fa-tags"></i>
+                <a class="tag-none-link" href="../../../../tags/hexo/" rel="tag">hexo</a>, <a class="tag-none-link" href="../../../../tags/theme/" rel="tag">theme</a>
+              </span>
+            
+          </div>
+        </div>
+        
+        <div class="post-body vscode-markdown">
+          <h1 id="VSCat-Theme-for-Hexo"><a href="#VSCat-Theme-for-Hexo" class="headerlink" title="VSCat Theme for Hexo"></a>VSCat Theme for Hexo</h1><p>An elegant and minimalist theme for Hexo, designed with a dark color scheme and code-inspired aesthetics.</p>
+<p><img src="https://cdn.pixabay.com/photo/2015/09/29/13/47/cat-963931_1280.jpg" alt="Black cat sitting at computer"></p>
+<p><em>Image credit: <a target="_blank" rel="noopener" href="https://pixabay.com/photos/cat-black-cat-work-computer-963931/">Black cat at work by Pixabay</a></em></p>
+<p>Demo：</p>
+<h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><ul>
+<li>🌙 Dark mode optimized</li>
+<li>📱 Fully responsive layout</li>
+<li>🚀 Fast loading performance</li>
+<li>🎨 Clean and minimalist design</li>
+</ul>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><ol>
+<li>Navigate to your Hex site’s themes directory:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> themes<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Clone this repository:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/B143KC47/VSCat-A-Hexo-Theme.git<br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>Add the theme to your site’s configuration:</li>
+</ol>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs toml"><span class="hljs-attr">theme</span> = <span class="hljs-string">&quot;VSC4T&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>Add the following to your <code>config.toml</code>:</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs toml"><span class="hljs-section">[params]</span><br>    <span class="hljs-comment"># Site Author</span><br>    <span class="hljs-attr">author</span> = <span class="hljs-string">&quot;Your Name&quot;</span><br>    <br>    <span class="hljs-comment"># Site Description</span><br>    <span class="hljs-attr">description</span> = <span class="hljs-string">&quot;Your site description&quot;</span><br>    <br>    <span class="hljs-comment"># Social Media Links</span><br>    <span class="hljs-attr">github</span> = <span class="hljs-string">&quot;yourusername&quot;</span><br>    <span class="hljs-attr">twitter</span> = <span class="hljs-string">&quot;yourusername&quot;</span><br>    <br>    <span class="hljs-comment"># Enable/Disable features</span><br>    <span class="hljs-attr">enableDarkMode</span> = <span class="hljs-literal">true</span><br>    <span class="hljs-attr">enableComments</span> = <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>This theme is released under the MIT License.</p>
+<h2 id="Support"><a href="#Support" class="headerlink" title="Support"></a>Support</h2><p>If you have any questions or need help, please open an issue in the GitHub repository.</p>
+
+        </div>
+        
+        <!-- 文章导航 -->
+        <nav class="post-nav">
+          
+          
+            <a class="next" href="../hello-world/">
+              Hello World
+              <i class="fas fa-chevron-right"></i>
+            </a>
+          
+        </nav>
+      </article>
+    </div>
+  </div>
+</div>
+
+    </div>
+    <footer class="footer">
+  <div class="status-bar">
+    <div class="status-item">
+      <i class="fas fa-code-branch"></i>
+      master
+    </div>
+    <div class="status-item">
+      <i class="fas fa-sync"></i>
+      B143KC47
+    </div>
+    <div class="status-item">
+      <i class="fas fa-clock"></i>
+      2025-02-23
+    </div>
+    <div class="status-item">
+      Designed By&nbsp; <a href="https://github.com/B143KC47" target="_blank"> BlackCat</a>
+    </div>
+    <div class="status-item github">
+      <a href="#" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+    <script src="//cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/highlight.js@11.7.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <!-- 这里可以放置自定义脚本 -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 代码高亮主题设置
+  hljs.configure({
+    theme: 'vs2015'
+  });
+  
+  // 添加平滑滚动
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+});
+</script>
+<script src="../../../../js/toc.js"></script>
+
+  </body>
+</html>

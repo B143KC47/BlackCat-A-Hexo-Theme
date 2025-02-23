@@ -9,115 +9,250 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
   <!-- 添加代码高亮样式 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
   <link rel="stylesheet" href="css/code.css">
+  <link rel="stylesheet" href="/css/vscode.css">
+  <link rel="stylesheet" href="css/post.css">
+  <link rel="stylesheet" href="css/tag.css">
+  <link rel="stylesheet" href="css/categories.css">
+  <link rel="stylesheet" href="css/archive.css">
 
   <!-- 添加 JetBrains Mono 字体 -->
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Add any custom head content here -->
 
+  <script src="/js/explorer.js"></script>
 <meta name="generator" content="Hexo 7.3.0"></head>
 
   <body>
     <div class="wrapper">
-      <header class="header">
-  <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">
-        <i class="fas fa-code mr-2"></i>BlackCat
+      <header class="vs-header">
+  <nav class="vs-nav">
+    <div class="nav-left">
+      <a href="index.html" class="nav-brand">
+        <i class="fas fa-terminal"></i>
+        BlackCat
       </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/archives">
-              <i class="fas fa-archive mr-1"></i>Archives
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/tags">
-              <i class="fas fa-tags mr-1"></i>Tags
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/about">
-              <i class="fas fa-user mr-1"></i>About
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/series">
-              <i class="fas fa-bookmark mr-1"></i>Series
-            </a>
-          </li>
-        </ul>
-      </div>
+    </div>
+    
+    <div class="nav-right">
+      <a href="index.html" class="nav-item active">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+      <a href="/archives" class="nav-item ">
+        <i class="fas fa-archive"></i>
+        <span>Archives</span>
+      </a>
+      <a href="/categories/" class="nav-item ">
+        <i class="fas fa-folder"></i>
+        <span>Categories</span>
+      </a>
+      <a href="/tags/" class="nav-item ">
+        <i class="fas fa-tags"></i>
+        <span>Tags</span>
+      </a>
+      <a href="/about" class="nav-item ">
+        <i class="fas fa-info-circle"></i>
+        <span>About</span>
+      </a>
     </div>
   </nav>
 </header>
 
+<script>
+  function smoothScroll(event, target) {
+    event.preventDefault();
+    const targetId = target.substring(target.indexOf('#') + 1);
+    const targetElement = document.getElementById(targetId);
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      <!-- 文章列表 -->
-      <div class="posts-container">
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 50, // 调整偏移量
+        behavior: 'smooth'
+      });
+    } else {
+      window.location.href = target;
+    }
+  }
+
+  window.addEventListener('scroll', function() {
+    const header = document.querySelector('.vs-header');
+    const nav = document.querySelector('.vs-nav');
+    const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    
+    nav.style.setProperty('--scroll-percent', `${scrollPercent}%`);
+    
+    if (window.scrollY > 0) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // 添加标签页切换动画
+  document.querySelectorAll('.nav-item').forEach(item => {
+    item.addEventListener('click', function(e) {
+      const ripple = document.createElement('span');
+      ripple.classList.add('nav-ripple');
+      this.appendChild(ripple);
+      
+      const rect = this.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      ripple.style.left = `${x}px`;
+      ripple.style.top = `${y}px`;
+      
+      setTimeout(() => ripple.remove(), 1000);
+    });
+  });
+</script>
+
+
+<div class="vscode-container">
+  <div class="sidebar-explorer">
+    <div class="explorer-header">
+      <span class="explorer-title">
+        <i class="fas fa-folder-open"></i> EXPLORER
+      </span>
+    </div>
+    
+    <div class="explorer-section">
+      <div class="section-header">
+        <i class="fas fa-chevron-down"></i>
+        <span>BLOG CONTENTS</span>
+      </div>
+      
+      <div class="section-content">
+          <div class="folder">
+            <i class="fas fa-folder"></i>
+            <span>hexo-theme</span>
+            <span class="count">(1)</span>
+          </div>
+      </div>
+    </div>
+    
+    <div class="explorer-section">
+      <div class="section-header">
+        <i class="fas fa-chevron-down"></i>
+        <span>RECENT POSTS</span>
+      </div>
+      
+      <div class="section-content">
+          <div class="file">
+            <i class="fas fa-file-code"></i>
+            <a href="2025/02/23/vsc4t/">VSC4T</a>
+          </div>
+          <div class="file">
+            <i class="fas fa-file-code"></i>
+            <a href="2025/02/23/hello-world/">Hello World</a>
+          </div>
+      </div>
+    </div>
+
+    <div class="explorer-section">
+      <div class="section-header">
+        <i class="fas fa-chevron-down"></i>
+        <span>TAGS</span>
+      </div>
+      
+      <div class="section-content">
         
-          <div class="post-item">
-            <div class="post-title">
-              <h2><a href="2025/02/22/hello-world/">Hello World</a></h2>
-            </div>
-            <div class="post-meta">
-              <span><i class="fas fa-calendar"></i> 2025-02-22</span>
-              
-              
-            </div>
-            <div class="post-excerpt">
-              
-                Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick...
-              
-            </div>
-            <div class="post-more">
-              <a href="2025/02/22/hello-world/" class="read-more">
-                <i class="fas fa-angle-right"></i> Read More
-              </a>
-            </div>
+          <div class="tag-item">
+            <i class="fas fa-tag"></i>
+            <a href="tags/hexo/">hexo</a>
+            <span class="count">(1)</span>
+          </div>
+        
+          <div class="tag-item">
+            <i class="fas fa-tag"></i>
+            <a href="tags/theme/">theme</a>
+            <span class="count">(1)</span>
           </div>
         
       </div>
-      <!-- 分页 -->
+    </div>
+  </div>
+
+  <div class="editor-content">
+    <div class="tab-bar">
+      <div class="tab active">
+        <i class="fas fa-home"></i>
+        <span>welcome.md</span>
+      </div>
+    </div>
+    
+    <div class="content-area">
+      <div class="posts-container">
+          <div class="post-card">
+            <div class="post-header">
+              <i class="fas fa-file-alt"></i>
+              <span class="post-title">
+                <a href="2025/02/23/vsc4t/">VSC4T</a>
+              </span>
+            </div>
+            
+            <div class="post-meta">
+              <span class="date">
+                <i class="fas fa-calendar-alt"></i>
+                2025-02-23
+              </span>
+                <span class="category">
+                  <i class="fas fa-folder"></i>
+                  <a class="category-link" href="categories/hexo-theme/">hexo-theme</a>
+                </span>
+            </div>
+            
+            <div class="post-excerpt">
+              VSCat Theme for HexoAn elegant and minimalist theme for Hexo, designed with a dark color scheme and code-inspired aesthetics.
+
+Image credit: Black cat at work by Pixabay
+Demo：
+Features
+🌙 Dark mode op...
+            </div>
+            
+            <div class="post-footer">
+              <a href="2025/02/23/vsc4t/" class="read-more">
+                <i class="fas fa-code"></i>
+                Read More
+              </a>
+            </div>
+          </div>
+          <div class="post-card">
+            <div class="post-header">
+              <i class="fas fa-file-alt"></i>
+              <span class="post-title">
+                <a href="2025/02/23/hello-world/">Hello World</a>
+              </span>
+            </div>
+            
+            <div class="post-meta">
+              <span class="date">
+                <i class="fas fa-calendar-alt"></i>
+                2025-02-23
+              </span>
+            </div>
+            
+            <div class="post-excerpt">
+              Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick...
+            </div>
+            
+            <div class="post-footer">
+              <a href="2025/02/23/hello-world/" class="read-more">
+                <i class="fas fa-code"></i>
+                Read More
+              </a>
+            </div>
+          </div>
+      </div>
       
-
-    </div>
-    <div class="col-md-4">
-      <aside class="sidebar">
-  <!-- 关于我 -->
-  <div class="sidebar-section about">
-    <h3><i class="fas fa-user"></i> About</h3>
-    <div class="about-info">
-      <img src="/images/avatar.png" alt="avatar" class="avatar">
-      <p>A simple dark Hexo theme inspired by code.</p>
-    </div>
-  </div>
-
-  <!-- 分类 -->
-  <div class="sidebar-section categories">
-    <h3><i class="fas fa-folder"></i> Categories</h3>
-    
-  </div>
-
-  <!-- 标签云 -->
-  <div class="sidebar-section tags">
-    <h3><i class="fas fa-tags"></i> Tags</h3>
-    
-  </div>
-</aside>
-
     </div>
   </div>
 </div>

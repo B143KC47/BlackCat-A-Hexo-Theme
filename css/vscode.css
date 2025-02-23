@@ -1,0 +1,285 @@
+:root {
+  --vscode-bg: #1e1e1e;
+  --vscode-sidebar: #252526;
+  --vscode-text: #d4d4d4;
+  --vscode-active: #37373d;
+  --vscode-border: #474747;
+}
+
+.vscode-container {
+  display: flex;
+  min-height: 100vh;
+  background: var(--vscode-bg);
+  color: var(--vscode-text);
+}
+
+/* 左侧资源管理器样式 */
+.sidebar-explorer {
+  width: 250px;
+  background: var(--vscode-sidebar);
+  border-right: 1px solid var(--vscode-border);
+  padding: 10px 0;
+}
+
+.explorer-header {
+  padding: 0 20px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #858585;
+}
+
+.explorer-section {
+  margin: 10px 0;
+}
+
+.section-header {
+  padding: 3px 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: #858585;
+}
+
+.section-header:hover {
+  background: var(--vscode-active);
+}
+
+.section-content {
+  padding: 5px 12px;
+}
+
+.folder, .file, .tag-item {
+  padding: 3px 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.folder:hover, .file:hover, .tag-item:hover {
+  background: var(--vscode-active);
+}
+
+.folder i {
+  color: #dcb67a;
+}
+
+.file i {
+  color: #519aba;
+}
+
+.count {
+  color: #808080;
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+/* 主要内容区域样式 */
+.editor-content {
+  flex: 1;
+  background: var(--vscode-bg);
+}
+
+.tab-bar {
+  height: 35px;
+  background: var(--vscode-sidebar);
+  border-bottom: 1px solid var(--vscode-border);
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+}
+
+.tab {
+  height: 100%;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--vscode-bg);
+  border-right: 1px solid var(--vscode-border);
+  font-size: 13px;
+  color: var(--vscode-text);
+}
+
+.tab.active {
+  background: var(--vscode-bg);
+  border-top: 1px solid var(--vscode-accent);
+}
+
+.tab i {
+  color: #519aba;
+}
+
+.content-area {
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* 文章卡片样式 */
+.post-card {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid var(--vscode-border);
+  border-radius: 4px;
+  transition: transform 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.post-header i {
+  color: #519aba;
+}
+
+.post-title a {
+  color: var(--vscode-accent);
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.post-meta {
+  font-size: 12px;
+  color: #858585;
+  display: flex;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.post-meta i {
+  margin-right: 4px;
+}
+
+.post-excerpt {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: var(--vscode-text);
+}
+
+.post-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #569cd6;
+  text-decoration: none;
+  padding: 6px 12px;
+  background: var(--vscode-active);
+  border-radius: 4px;
+  font-size: 13px;
+  transition: background 0.2s ease;
+}
+
+.read-more:hover {
+  background: var(--vscode-highlight);
+}
+
+/* 分页样式 */
+.pagination-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--vscode-sidebar);
+  border: 1px solid var(--vscode-active);
+  border-radius: 4px;
+  padding: 12px;
+}
+
+.pagination-info {
+  color: #808080;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.pagination {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+.pagination a {
+  padding: 5px 10px;
+  border: 1px solid var(--vscode-border);
+  color: var(--vscode-text);
+  text-decoration: none;
+}
+
+.pagination a:hover {
+  background: var(--vscode-active);
+}
+
+.page-number, .extend {
+  padding: 4px 8px;
+  background: var(--vscode-active);
+  border-radius: 3px;
+  color: var(--vscode-text);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.page-number:hover, .extend:hover {
+  background: var(--vscode-highlight);
+}
+
+.page-number.current {
+  background: var(--vscode-accent);
+}
+
+/* 标签样式 */
+.tag-item i {
+  color: #c2975b;
+  font-size: 12px;
+}
+
+.tag-item a {
+  color: var(--vscode-text);
+  text-decoration: none;
+  flex: 1;
+}
+
+.tag-item:hover a {
+  color: var(--vscode-accent);
+}
+
+.tag-item .count {
+  font-size: 11px;
+  color: #808080;
+  margin-left: auto;
+}
+
+/* 折叠/展开动画 */
+.section-header i {
+  transition: transform 0.2s ease;
+}
+
+.section-header.collapsed i {
+  transform: rotate(-90deg);
+}
+
+.section-content {
+  max-height: 500px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.section-content.collapsed {
+  max-height: 0;
+}
