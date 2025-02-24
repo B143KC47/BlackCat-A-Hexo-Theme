@@ -135,10 +135,8 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 16px;
 }
 
-/* TOC 样式 */
+/* 修改TOC样式，从固定定位改为普通文档流 */
 .toc-container {
-  position: sticky;
-  top: 20px;
   background-color: var(--vscode-sidebar);
   border: 1px solid var(--vscode-active);
   border-radius: 4px;

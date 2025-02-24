@@ -18,7 +18,7 @@
     .sidebar-explorer {
         position: fixed;
         left: -100%;
-        top: 0;
+        top: 10%;
         height: 100%;
         width: 80%;
         max-width: 300px;
