@@ -65,6 +65,9 @@ body {
 a {
   color: var(--vscode-accent);
   text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 a:hover {
@@ -539,4 +542,86 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--vscode-active);
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 10px;
+    overflow-x: hidden;
+  }
+  
+  .post-content {
+    padding: 1rem;
+    overflow-x: hidden;
+  }
+  
+  /* 确保所有内容都不会溢出容器 */
+  img, video, iframe, embed, object {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* 优化表格在移动端的显示 */
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* 优化移动端文章标题 */
+  h1, h2, h3 {
+    word-break: break-word;
+  }
+  
+  /* 页脚在移动端的样式 */
+  .footer {
+    position: relative;
+    margin-top: 2rem;
+  }
+  
+  .status-bar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 8px 5px;
+  }
+  
+  .status-item, .status-item.github {
+    margin: 0;
+    font-size: 11px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* 确保所有页脚项目样式一致 */
+  .status-item i, .status-item.github i {
+    font-size: 12px;
+    margin-right: 4px;
+  }
+  
+  /* 移动端内容区域底部留出空间 */
+  .wrapper {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  
+  /* 确保内容不会被页脚遮挡 */
+  body {
+    margin-bottom: 0;
+  }
+}
+
+/* 小屏幕设备的额外优化 */
+@media (max-width: 480px) {
+  .status-bar {
+    padding: 5px;
+  }
+  
+  .status-item, .status-item.github {
+    font-size: 10px;
+  }
 }
